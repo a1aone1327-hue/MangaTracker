@@ -1,0 +1,12 @@
+node_modules
+dist
+target
+# генерируется в CI и командой `npm run icons`
+src-tauri/icons
+# генерируется командой `tauri android init`
+src-tauri/gen
+# ключи подписи никогда не коммитим
+*.jks
+*.keystore
+.DS_Store
+.logic-test

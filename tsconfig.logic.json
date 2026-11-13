@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "rootDir": "src/lib",
+    "outDir": ".logic-test"
+  },
+  "files": [
+    "src/lib/query.ts",
+    "src/lib/format.ts",
+    "src/lib/types.ts",
+    "src/lib/backup.ts"
+  ]
+}

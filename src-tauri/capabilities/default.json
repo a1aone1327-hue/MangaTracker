@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "Базовые разрешения главного окна",
+  "windows": ["main"],
+  "permissions": ["core:default", "opener:default", "sharekit:allow-share-file"]
+}

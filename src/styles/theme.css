@@ -1,0 +1,212 @@
+:root {
+  color-scheme: dark;
+
+  /* Палитра: чернильно-синий фон, светлая орхидея как акцент */
+  --bg: #12141f;
+  --surface: #1a1d2b;
+  --surface-2: #232738;
+  --line: #2d3248;
+  --text: #eceaf6;
+  --muted: #9a9ab5;
+  --accent: #b9a2ff;
+  --danger: #ff7a8a;
+  --ok: #7ddba8;
+
+  --radius: 18px;
+  --tap: 48px; /* минимальная зона нажатия */
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- общие элементы ---------- */
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.btn {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  padding: 0 22px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 650;
+  transition:
+    transform 0.12s,
+    opacity 0.2s;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.btn.primary {
+  color: #1a1230;
+  background: var(--accent);
+  border-color: transparent;
+}
+.btn.danger {
+  color: var(--danger);
+}
+.btn.danger.solid {
+  color: #2a0d12;
+  background: var(--danger);
+  border-color: transparent;
+}
+
+.input {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0 16px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  font: inherit;
+}
+.input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  border-color: transparent;
+}
+
+.icon-btn {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  color: var(--muted);
+  border-radius: 50%;
+  transition:
+    background 0.15s,
+    transform 0.12s;
+}
+.icon-btn:active {
+  background: var(--surface-2);
+  transform: scale(0.94);
+}
+
+/* ---------- поля и чипы (общие для форм) ---------- */
+
+.field {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chips.scroll {
+  flex-wrap: nowrap;
+  margin-inline: -20px;
+  padding-inline: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.chips.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  display: inline-flex;
+  flex: none;
+  gap: 8px;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  white-space: nowrap;
+  background: var(--surface-2);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    transform 0.12s;
+}
+.chip:active {
+  transform: scale(0.96);
+}
+.chip[aria-pressed='true'],
+.chip[aria-checked='true'] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface-2));
+}
+.chip .dot {
+  width: 10px;
+  height: 10px;
+  background: var(--c);
+  border-radius: 50%;
+}
+.chip small {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+textarea.input {
+  font: inherit;
+}
